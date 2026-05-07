@@ -3,11 +3,11 @@ import { FiGithub, FiArrowUpRight } from 'react-icons/fi'
 
 const projects = [
   {
-    title: 'Sammunat AI Landing',
+    title: 'Swiggy Like Reels Food App',
     description: 'Swiggy Like Reels Food App - A full-stack MERN application enabling reel-style food discovery with real-time interactions, likes, and engagement features.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT Authentication'],
     github: 'https://github.com/mahanandhi-abhiram-22',
-    live: 'https://sammunat-ai-landing.vercel.app/'
+    live: 'https://github.com/mahanandhi-abhiram-22/Swiggy-like-reel-app'
   },
   {
     title: 'Pokémon Explorer',
@@ -29,10 +29,25 @@ const projects = [
     tech: ['React', 'Node.js', 'Express', 'QR Code Processing', 'Security Validation'],
     github: 'https://github.com/mahanandhi-abhiram-22/aadhaar-rq-scan',
     live: 'https://github.com/mahanandhi-abhiram-22/aadhaar-rq-scan'
+  },
+  {
+  title: 'Sammunat AI Landing Page',
+  description: 'Professional AI-powered landing page for Sammunat LLC, a digital growth agency. Features animated hero sections, service showcases for web development, video editing, digital marketing, and AI solutions — built as an internship assignment for a USA-based professional services marketplace.',
+  tech: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'Vercel'],
+  github: 'https://github.com/mahanandhi-abhiram-22/sammunat-ai-landing',
+  live: 'https://sammunat-ai-landing.vercel.app/'
+  },
+  {
+  title: 'AI-Powered Health Assistant',
+  description: 'A chatbot-based health assistant web app that answers health-related queries using NLP and a pre-trained BERT model. Responses are strictly controlled within a predefined dataset to ensure reliable and safe healthcare guidance.',
+  tech: ['Python', 'Streamlit', 'Hugging Face Transformers', 'NLTK', 'BERT (deepset/bert-base-cased-squad2)'],
+  github: 'https://github.com/mahanandhi-abhiram-22/ai-powered-health-assistant',
+  live: 'https://github.com/mahanandhi-abhiram-22/ai-powered-health-assistant'
   }
 ]
 
 const Projects = () => {
+
   return (
     <section id="projects" className="section py-32">
       <div className="max-w-7xl mx-auto">
