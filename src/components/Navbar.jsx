@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiMenu, FiX, FiGithub, FiLinkedin } from 'react-icons/fi'
+import signLogo from '../sign.png'
+
 
 const Navbar = ({ activeSection, scrollToSection }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,10 +27,11 @@ const Navbar = ({ activeSection, scrollToSection }) => {
   onClick={() => scrollToSection('home')}
   whileHover={{ scale: 1.03 }}
 >
-  <img
-    src="/sign.png"
-    alt="Abhiram Signature Logo"
-className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto object-contain select-none translate-y-1"  />
+<img
+  src={signLogo}
+  alt="Abhiram Signature Logo"
+  className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto object-contain select-none"
+/>
 </motion.div>
         <ul className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
