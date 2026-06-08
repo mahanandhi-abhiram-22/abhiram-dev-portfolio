@@ -20,20 +20,16 @@ const Navbar = ({ activeSection, scrollToSection }) => {
       className="sticky top-0 z-50 w-full backdrop-blur bg-[#0f0c1b]/70 border-b border-zinc-800/50"
     >
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-12 h-16">
-        <motion.div
-          className="text-white font-bold tracking-tight cursor-pointer"
-          onClick={() => scrollToSection('home')}
-          whileHover={{ scale: 1.03 }}
-        >
-          <div className="flex items-center h-20 w-64 min-w-[200px] justify-start pl-2 md:pl-4">
-            <img 
-              src="/sign.png" 
-              alt="Abhiram Mahanandhi Signature" 
-              className="h-full w-auto object-contain brightness-0 invert scale-150 md:scale-175 origin-left transition-transform duration-300 hover:scale-[1.85]" 
-            />
-          </div>
-        </motion.div>
-
+<motion.div
+  className="cursor-pointer flex items-center h-full pl-2 md:pl-4"
+  onClick={() => scrollToSection('home')}
+  whileHover={{ scale: 1.03 }}
+>
+  <img
+    src="/sign.png"
+    alt="Abhiram Signature Logo"
+className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto object-contain select-none translate-y-1"  />
+</motion.div>
         <ul className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <li key={item.id}>
