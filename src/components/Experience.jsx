@@ -12,7 +12,7 @@ const experiences = [
   },
   {
     title: 'Full-Stack ML Engineer',
-    subtitle: 'AI Powered Health Assistant | Duration: 2025 - 2026',
+    subtitle: 'AI Powered Health Assistant | Duration: 2025 - 2025',
     points: [
       'Built NLP based chatbot using Python and NLTK',
       'Integrated disease datasets for intelligent recommendations',
