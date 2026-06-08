@@ -34,16 +34,14 @@ function App() {
   }
 
   return (
-    <div className="relative overflow-hidden gradient-bg">
-      {/* Premium Animated Background */}
+    <div className="w-full min-h-screen bg-[#0a0a0c] text-white overflow-x-hidden">
+      {/* Purple radial glows */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-blob animation-delay-0" />
-          <div className="absolute top-1/2 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-indigo-500/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 rounded-full blur-3xl animate-blob animation-delay-4000" />
-        </div>
+        <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 15% 10%, rgba(99,102,241,0.22) 0%, rgba(15,12,27,0) 45%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 85% 25%, rgba(168,85,247,0.18) 0%, rgba(15,12,27,0) 45%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 60% 90%, rgba(59,130,246,0.12) 0%, rgba(15,12,27,0) 45%)" }} />
       </div>
-      
+
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
       <Hero scrollToSection={scrollToSection} />
       <About />

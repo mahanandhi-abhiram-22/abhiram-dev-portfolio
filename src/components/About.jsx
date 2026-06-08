@@ -2,53 +2,65 @@ import { motion } from 'framer-motion'
 
 const About = () => {
   return (
-    <section id="about" className="section py-32 bg-black/20">
-      <div className="max-w-6xl mx-auto text-center px-4">
-        <motion.h2 
-          className="text-5xl md:text-7xl font-bold gradient-text mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          About Me
-        </motion.h2>
-        
-        <motion.div
-          className="max-w-4xl mx-auto space-y-8 text-xl md:text-2xl leading-relaxed text-slate-300"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <p>
-            I am a passionate <span className="gradient-text font-bold">MERN Stack Developer</span> with hands-on experience building scalable full-stack web applications using{' '}
-            <span className="font-bold">React</span>,{' '}
-            <span className="font-bold">Node.js</span>,{' '}
-            <span className="font-bold">Express</span>, and{' '}
-            <span className="font-bold">MongoDB</span>.
-          </p>
-          
-          <p>
-            I specialize in <span className="font-bold">RESTful API development</span>,{' '}
-            <span className="font-bold">JWT-based authentication</span>, and{' '}
-            <span className="font-bold">cloud deployment</span>.
-          </p>
-          
-          <p>
-            I also integrate <span className="font-bold">AI/ML features</span> like{' '}
-            <span className="font-bold">NLP pipelines</span> and{' '}
-            <span className="font-bold">predictive models</span> into modern web applications.
-          </p>
-          
-          <p className="text-lg md:text-xl">
-            I focus on building <span className="font-bold">secure, scalable, and performance-optimized systems</span>.
-          </p>
-        </motion.div>
+    <section id="about" className="section">
+      <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
+        <div className="flex items-end justify-between gap-6 mb-10">
+          <h2 className="h-title text-3xl md:text-5xl">About Me</h2>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="thin-card p-6 md:p-8 rounded-2xl"
+          >
+            <p className="text-zinc-400 font-light leading-relaxed text-base md:text-lg">
+              I build production-grade <span className="text-white">MERN</span> applications with a focus on clean APIs, responsive UI, and real-world implementation. From planning features to shipping performant deployments, I develop solutions that are maintainable, mobile-friendly, and ready to scale.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-3 gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="thin-card p-5 rounded-2xl"
+            >
+              <div className="text-white font-bold tracking-tight text-2xl">10+</div>
+              <div className="text-zinc-400 font-light mt-1 text-sm">Projects Completed</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.06 }}
+              className="thin-card p-5 rounded-2xl"
+            >
+              <div className="text-white font-bold tracking-tight text-2xl">Freelance</div>
+              <div className="text-zinc-400 font-light mt-1 text-sm">Clients</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.12 }}
+              className="thin-card p-5 rounded-2xl"
+            >
+              <div className="text-white font-bold tracking-tight text-2xl">AI</div>
+              <div className="text-zinc-400 font-light mt-1 text-sm">Integrations</div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
 
 export default About
+
 

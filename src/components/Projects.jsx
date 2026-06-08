@@ -1,117 +1,96 @@
 import { motion } from 'framer-motion'
-import { FiGithub, FiArrowUpRight } from 'react-icons/fi'
 
 const projects = [
   {
     title: 'Swiggy Like Reels Food App',
-    description: 'Swiggy Like Reels Food App - A full-stack MERN application enabling reel-style food discovery with real-time interactions, likes, and engagement features.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT Authentication'],
+    description:
+      'Built vertical reel-style food discovery with MERN by implementing real-time interactions, likes, and feed engagement analytics to drive faster user exploration and higher retention.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
     github: 'https://github.com/mahanandhi-abhiram-22',
-    live: 'https://github.com/mahanandhi-abhiram-22/Swiggy-like-reel-app'
+    live: 'https://github.com/mahanandhi-abhiram-22/Swiggy-like-reel-app',
   },
   {
     title: 'Pokémon Explorer',
-    description: 'Interactive React app integrating PokeAPI for real-time Pokémon search, filtering, and dynamic card visualization.',
-    tech: ['React', 'Vite', 'Axios', 'Tailwind CSS', 'PokeAPI'],
+    description:
+      'Interactive React app integrating PokeAPI for real-time Pokémon search, filtering, and dynamic card visualization.',
+    tech: ['React', 'Vite', 'Axios', 'TailwindCSS', 'PokeAPI'],
     github: 'https://github.com/mahanandhi-abhiram-22',
-    live: 'https://poke-explorer-delta.vercel.app/'
+    live: 'https://poke-explorer-delta.vercel.app/',
   },
   {
     title: 'Query Dashboard',
-    description: 'Interactive analytics dashboard with React & Redux Toolkit visualizing query results with charts and responsive UI.',
-    tech: ['React', 'Redux Toolkit', 'Chart.js', 'Tailwind CSS'],
+    description:
+      'Built an interactive analytics query dashboard with React and Tailwind CSS to isolate complex system query logs, then streamlined Redux Toolkit state management to prevent unnecessary re-renders and accelerated chart-driven analysis using Chart.js.',
+    tech: ['React', 'Redux Toolkit', 'Chart.js', 'TailwindCSS'],
     github: 'https://github.com/mahanandhi-abhiram-22',
-    live: 'https://query-dashboard-eta.vercel.app/'
+    live: 'https://query-dashboard-eta.vercel.app/',
   },
   {
     title: 'Aadhaar QR Scan',
-    description: 'Advanced Aadhaar QR code scanner and verifier application with secure validation and extraction features.',
-    tech: ['React', 'Node.js', 'Express', 'QR Code Processing', 'Security Validation'],
+    description:
+      'Advanced Aadhaar QR code scanner and verifier application with secure validation and extraction features.',
+    tech: ['React', 'Node.js', 'Express', 'QR', 'Security'],
     github: 'https://github.com/mahanandhi-abhiram-22/aadhaar-rq-scan',
-    live: 'https://github.com/mahanandhi-abhiram-22/aadhaar-rq-scan'
+    live: 'https://github.com/mahanandhi-abhiram-22/aadhaar-rq-scan',
   },
   {
-  title: 'Sammunat AI Landing Page',
-  description: 'Professional AI-powered landing page for Sammunat LLC, a digital growth agency. Features animated hero sections, service showcases for web development, video editing, digital marketing, and AI solutions — built as an internship assignment for a USA-based professional services marketplace.',
-  tech: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'Vercel'],
-  github: 'https://github.com/mahanandhi-abhiram-22/sammunat-ai-landing',
-  live: 'https://sammunat-ai-landing.vercel.app/'
+    title: 'Sammunat AI Landing Page',
+    description:
+      'Engineered a production-ready agency landing page in Next.js 15 with TypeScript and Tailwind CSS for a US-based professional marketplace, then leveraged Framer Motion for fluid hero animations to maximize user retention and improved SEO/performance using Next.js Server Components deployed on Vercel.',
+    tech: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'Vercel'],
+    github: 'https://github.com/mahanandhi-abhiram-22/sammunat-ai-landing',
+    live: 'https://sammunat-ai-landing.vercel.app/',
   },
-  {
-  title: 'AI-Powered Health Assistant',
-  description: 'A chatbot-based health assistant web app that answers health-related queries using NLP and a pre-trained BERT model. Responses are strictly controlled within a predefined dataset to ensure reliable and safe healthcare guidance.',
-  tech: ['Python', 'Streamlit', 'Hugging Face Transformers', 'NLTK', 'BERT (deepset/bert-base-cased-squad2)'],
-  github: 'https://github.com/mahanandhi-abhiram-22/ai-powered-health-assistant',
-  live: 'https://github.com/mahanandhi-abhiram-22/ai-powered-health-assistant'
-  }
 ]
 
 const Projects = () => {
-
   return (
-    <section id="projects" className="section py-32">
-      <div className="max-w-7xl mx-auto">
-        <motion.h2 
-          className="text-5xl md:text-7xl font-bold gradient-text text-center mb-24"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Projects
-        </motion.h2>
-        
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {projects.map((project, index) => (
+    <section id="projects" className="section">
+      <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
+        <h2 className="h-title text-3xl md:text-5xl mb-10">Projects</h2>
+
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {projects.map((project, idx) => (
             <motion.div
               key={project.title}
-              className="glass-modern p-6 lg:p-8 tilt-hover group cursor-pointer hover:shadow-glow"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02, rotateX: 2, rotateY: 2 }}
+              transition={{ duration: 0.45, delay: idx * 0.02 }}
+              className="thin-card rounded-2xl p-6 md:p-7"
             >
-              <div className="h-32 bg-gradient-to-br from-slate-800/50 to-transparent rounded-xl mb-4 group-hover:from-slate-700/70 transition-all duration-500 shimmer" />
-              
-              <h3 className="text-xl font-bold mb-3 group-hover:gradient-text-primary transition-all duration-300">
-                {project.title}
-              </h3>
-              
-              <p className="text-slate-300 mb-4 text-sm leading-tight">{project.description}</p>
-              
-              <div className="mb-4">
-                <h4 className="font-bold text-slate-200 text-sm mb-2">Tech Stack:</h4>
-                <div className="flex flex-wrap gap-1">
-                  {project.tech.map((tech) => (
-                    <motion.span
-                      key={tech}
-                      className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-medium border border-white/20 hover:bg-white/20 hover:shadow-glow transition-all"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {tech}
-                    </motion.span>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-white font-bold tracking-tight text-xl">{project.title}</h3>
+                  <p className="muted text-sm leading-relaxed">{project.description}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span key={t} className="pill">{t}</span>
                   ))}
                 </div>
               </div>
-              
-              <div className="flex space-x-4 pt-4">
-                <motion.a
-                  href={project.github}
-                  target="_blank"
-                  className="btn-secondary flex-1 text-center py-3"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <FiGithub className="inline mr-2" />
-                  GitHub
-                </motion.a>
-                <motion.a
+
+              <div className="mt-6 flex items-center gap-4">
+                <a
                   href={project.live}
                   target="_blank"
-                  className="btn-primary flex-1 text-center py-3"
-                  whileHover={{ scale: 1.05 }}
+                  rel="noreferrer"
+                  className="btn-outline flex-1"
                 >
-                  Live <FiArrowUpRight className="ml-2" />
-                </motion.a>
+                  <span className="font-semibold">Demo</span>
+                  <span className="ml-2 text-zinc-400">→</span>
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline flex-1"
+                >
+                  <span className="font-semibold">GitHub</span>
+                  <span className="ml-2 text-zinc-400">↗</span>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -122,3 +101,4 @@ const Projects = () => {
 }
 
 export default Projects
+

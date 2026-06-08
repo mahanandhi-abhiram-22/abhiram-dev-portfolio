@@ -12,7 +12,7 @@
   
   body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    background: #0f0c1b;
     color: white;
     min-height: 100vh;
   }
@@ -50,8 +50,51 @@
     background-clip: text;
   }
 
-  .gradient-bg {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 50%, #0f0f23 100%);
+  .gradient-bg { background: transparent; }
+}
+
+@layer components {
+  .section {
+    min-height: 100vh;
+    padding: 8rem 1.5rem;
+  }
+
+  .muted {
+    @apply text-zinc-400 font-light;
+  }
+
+  .h-title {
+    @apply text-white font-bold tracking-tight;
+  }
+
+  .thin-card {
+    @apply border border-zinc-800/50 bg-transparent;
+  }
+
+  .pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-200 border border-purple-500/20;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-lg border border-zinc-800/60 text-white font-semibold tracking-tight transition-all;
+  }
+
+  .btn-outline:hover {
+    @apply border-purple-500/40;
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary-soft {
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold tracking-tight text-white;
+    background: linear-gradient(135deg, rgba(99,102,241,0.95), rgba(168,85,247,0.95));
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.2);
+    transition: transform 160ms ease, filter 160ms ease;
+  }
+
+  .btn-primary-soft:hover {
+    transform: translateY(-1px) scale(1.02);
+    filter: brightness(1.05);
   }
 }
 
