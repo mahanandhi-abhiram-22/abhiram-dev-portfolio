@@ -4,7 +4,7 @@ import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 const Footer = () => {
   return (
     <footer className="relative z-10 border-t border-white/10 bg-white/[0.02] backdrop-blur-xl py-10 mt-8">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 lg:px-14 text-center">
         <motion.div
           className="flex justify-center space-x-5 mb-4"
           initial={{ opacity: 0, y: 16 }}

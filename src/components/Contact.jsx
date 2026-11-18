@@ -22,7 +22,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section">
-      <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
+      <div className="w-full max-w-[1680px] mx-auto py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <div className="lg:pr-8">
             <h2 className="h-title text-3xl md:text-5xl mb-4">Get In <span className="gradient-text">Touch</span></h2>

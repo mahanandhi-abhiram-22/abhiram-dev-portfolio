@@ -41,7 +41,7 @@ const Navbar = ({ activeSection, scrollToSection }) => {
         scrolled ? 'bg-[#07070b]/75 border-white/10 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)]' : 'bg-transparent border-transparent'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-12 h-16 md:h-[72px]">
+      <div className="w-full max-w-[1680px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-14 h-16 md:h-[72px]">
         <motion.button
           className="flex items-center h-full"
           onClick={() => scrollToSection('home')}

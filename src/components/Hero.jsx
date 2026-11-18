@@ -63,7 +63,7 @@ const Hero = ({ scrollToSection }) => {
   return (
     <section id="home" className="section">
       <div className="w-full flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-16 lg:px-20 py-12 md:py-20">
+        <div className="w-full max-w-[1680px] mx-auto py-12 md:py-20">
           <div className="w-full flex flex-col md:flex-row items-center justify-between gap-12">
             {/* Text */}
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">

@@ -16,7 +16,7 @@ const CountUp = ({ to, suffix = '' }) => {
 const About = () => {
   return (
     <section id="about" className="section">
-      <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
+      <div className="w-full max-w-[1680px] mx-auto py-16 md:py-24">
         <div className="flex items-end justify-between gap-6 mb-10">
           <h2 className="h-title text-3xl md:text-5xl">About <span className="gradient-text">Me</span></h2>
         </div>
