@@ -2,6 +2,15 @@ import { motion } from 'framer-motion'
 
 const projects = [
   {
+    badge: 'IEEE',
+    title: 'Battery Health Intelligence',
+    description: 'Battery health intelligence project, published on IEEE Xplore.',
+    tech: [],
+    github: 'https://github.com/mahanandhi-abhiram-22/Battery-Health-Intelligence',
+    live: 'https://ieeexplore.ieee.org/document/11252685',
+    liveLabel: 'Paper',
+  },
+  {
     title: 'Swiggy Like Reels Food App',
     description:
       'Built vertical reel-style food discovery with MERN by implementing real-time interactions, likes, and feed engagement analytics to drive faster user exploration and higher retention.',
@@ -61,15 +70,22 @@ const Projects = () => {
             >
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-white font-bold tracking-tight text-xl">{project.title}</h3>
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-white font-bold tracking-tight text-xl">{project.title}</h3>
+                    {project.badge && (
+                      <span className="shrink-0 rounded-full border border-amber-300/40 bg-amber-300/10 px-3 py-1 text-xs font-semibold tracking-wide text-amber-200">
+                        {project.badge}
+                      </span>
+                    )}
+                  </div>
                   <p className="muted text-sm leading-relaxed">{project.description}</p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                {project.tech.length > 0 && <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
                     <span key={t} className="pill">{t}</span>
                   ))}
-                </div>
+                </div>}
               </div>
 
               <div className="mt-6 flex items-center gap-4">
@@ -79,7 +95,7 @@ const Projects = () => {
                   rel="noreferrer"
                   className="btn-outline flex-1"
                 >
-                  <span className="font-semibold">Demo</span>
+                  <span className="font-semibold">{project.liveLabel ?? 'Demo'}</span>
                   <span className="ml-2 text-purple-300">→</span>
                 </a>
                 <a
