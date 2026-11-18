@@ -70,6 +70,14 @@ const Hero = ({ scrollToSection }) => {
             {/* Text */}
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
               <div className="space-y-6">
+                <motion.div {...rise(0)} className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-sm text-emerald-200">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  </span>
+                  Open to work
+                </motion.div>
+
                 <motion.h1 {...rise(0.1)} className="text-white font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-left">
                   Hello! I Am <span className="gradient-text">Abhiram Mahanandhi</span>
                 </motion.h1>

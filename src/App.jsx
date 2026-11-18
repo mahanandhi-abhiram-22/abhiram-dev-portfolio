@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import TechStrip from './components/TechStrip'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
@@ -79,6 +80,7 @@ function App() {
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
       <main className="relative z-10">
         <Hero scrollToSection={scrollToSection} />
+        <TechStrip />
         <About />
         <Skills />
         <Projects />
