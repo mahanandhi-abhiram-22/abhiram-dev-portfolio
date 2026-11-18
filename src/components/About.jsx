@@ -1,18 +1,31 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, animate, useInView } from 'framer-motion'
+
+const CountUp = ({ to, suffix = '' }) => {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true })
+  const [n, setN] = useState(0)
+  useEffect(() => {
+    if (!inView) return
+    const c = animate(0, to, { duration: 1.6, ease: [0.22, 1, 0.36, 1], onUpdate: (v) => setN(Math.round(v)) })
+    return () => c.stop()
+  }, [inView, to])
+  return <span ref={ref}>{n}{suffix}</span>
+}
 
 const About = () => {
   return (
     <section id="about" className="section">
       <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
         <div className="flex items-end justify-between gap-6 mb-10">
-          <h2 className="h-title text-3xl md:text-5xl">About Me</h2>
+          <h2 className="h-title text-3xl md:text-5xl">About <span className="gradient-text">Me</span></h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
             className="thin-card p-6 md:p-8 rounded-2xl"
           >
@@ -25,33 +38,33 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5 }}
               className="thin-card p-5 rounded-2xl"
             >
-              <div className="text-white font-bold tracking-tight text-2xl">10+</div>
+              <div className="gradient-text font-bold tracking-tight text-3xl"><CountUp to={10} suffix="+" /></div>
               <div className="text-zinc-400 font-light mt-1 text-sm">Projects Completed</div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: 0.06 }}
               className="thin-card p-5 rounded-2xl"
             >
-              <div className="text-white font-bold tracking-tight text-2xl">Freelance</div>
+              <div className="gradient-text font-bold tracking-tight text-3xl">Freelance</div>
               <div className="text-zinc-400 font-light mt-1 text-sm">Clients</div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: 0.12 }}
               className="thin-card p-5 rounded-2xl"
             >
-              <div className="text-white font-bold tracking-tight text-2xl">AI</div>
+              <div className="gradient-text font-bold tracking-tight text-3xl">AI</div>
               <div className="text-zinc-400 font-light mt-1 text-sm">Integrations</div>
             </motion.div>
           </div>

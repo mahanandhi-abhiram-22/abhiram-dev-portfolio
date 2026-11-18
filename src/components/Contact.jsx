@@ -25,23 +25,23 @@ const Contact = () => {
       <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <div className="lg:pr-8">
-            <h2 className="h-title text-3xl md:text-5xl mb-4">Get In Touch</h2>
+            <h2 className="h-title text-3xl md:text-5xl mb-4">Get In <span className="gradient-text">Touch</span></h2>
             <p className="muted text-sm md:text-base leading-relaxed">
               Minimal form, fast feedback. Send a message and I’ll get back to you.
             </p>
 
             <div className="mt-6 space-y-3">
-              <div className="thin-card rounded-2xl p-4">
-                <div className="text-white font-light">Email</div>
-                <div className="text-white font-bold">abhiram.mahanandhi04@gmail.com</div>
+              <div className="thin-card rounded-2xl p-4 md:p-5">
+                <div className="text-zinc-400 font-light text-sm">Email</div>
+                <div className="text-white font-semibold">abhiram.mahanandhi04@gmail.com</div>
               </div>
-              <div className="thin-card rounded-2xl p-4">
-                <div className="text-white font-light">Phone</div>
-                <div className="text-white font-bold">+91 9154737259</div>
+              <div className="thin-card rounded-2xl p-4 md:p-5">
+                <div className="text-zinc-400 font-light text-sm">Phone</div>
+                <div className="text-white font-semibold">+91 9154737259</div>
               </div>
-              <div className="thin-card rounded-2xl p-4">
-                <div className="text-white font-light">Location</div>
-                <div className="text-white font-bold">Hyderabad, India</div>
+              <div className="thin-card rounded-2xl p-4 md:p-5">
+                <div className="text-zinc-400 font-light text-sm">Location</div>
+                <div className="text-white font-semibold">Hyderabad, India</div>
               </div>
             </div>
           </div>
@@ -50,45 +50,45 @@ const Contact = () => {
             className="thin-card rounded-2xl p-6 md:p-8"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="muted text-xs">Name</label>
+                <label className="muted text-xs tracking-wide">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className="mt-2 w-full bg-transparent border border-zinc-800/60 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500/60"
+                  className="field"
                   required
                 />
               </div>
 
               <div>
-                <label className="muted text-xs">Email</label>
+                <label className="muted text-xs tracking-wide">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
-                  className="mt-2 w-full bg-transparent border border-zinc-800/60 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500/60"
+                  className="field"
                   required
                 />
               </div>
 
               <div>
-                <label className="muted text-xs">Message</label>
+                <label className="muted text-xs tracking-wide">Message</label>
                 <textarea
                   name="message"
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Write your message..."
-                  className="mt-2 w-full bg-transparent border border-zinc-800/60 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500/60 resize-none"
+                  className="field resize-none"
                   required
                 />
               </div>

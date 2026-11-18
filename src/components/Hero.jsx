@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
-import heroImg from '../../Hero.png'
+import heroImg from '../hero.webp'
+
+const ease = [0.22, 1, 0.36, 1]
+const rise = (d = 0) => ({ initial: { opacity: 0, y: 28 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8, delay: d, ease } })
 
 const Hero = ({ scrollToSection }) => {
   const lines = useMemo(
@@ -14,6 +17,18 @@ const Hero = ({ scrollToSection }) => {
   const [isDeleting, setIsDeleting] = useState(false)
 
   const [imgFailed, setImgFailed] = useState(false)
+
+  // 3D tilt on the portrait
+  const mx = useMotionValue(0)
+  const my = useMotionValue(0)
+  const rx = useSpring(useTransform(my, [-0.5, 0.5], [7, -7]), { stiffness: 150, damping: 18 })
+  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-9, 9]), { stiffness: 150, damping: 18 })
+  const onTilt = (e) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    mx.set((e.clientX - r.left) / r.width - 0.5)
+    my.set((e.clientY - r.top) / r.height - 0.5)
+  }
+  const resetTilt = () => { mx.set(0); my.set(0) }
 
   useEffect(() => {
     const current = lines[lineIndex]
@@ -47,17 +62,17 @@ const Hero = ({ scrollToSection }) => {
 
   return (
     <section id="home" className="section">
-      <div className="w-full min-h-[calc(100vh-80px)] flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-16 lg:px-20 py-12 md:py-20">
           <div className="w-full flex flex-col md:flex-row items-center justify-between gap-12">
             {/* Text */}
             <div className="w-full md:w-1/2 flex flex-col items-start text-left">
               <div className="space-y-6">
-                <h1 className="text-white font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-left">
-                  Hello! I Am Abhiram Mahanandhi
-                </h1>
+                <motion.h1 {...rise(0.1)} className="text-white font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-left">
+                  Hello! I Am <span className="gradient-text">Abhiram Mahanandhi</span>
+                </motion.h1>
 
-                <div className="space-y-3">
+                <motion.div {...rise(0.25)} className="space-y-3">
                   <div className="h-10">
                     <span className="text-zinc-400 font-light text-lg md:text-xl">I&apos;m a </span>
                     <span className="text-white font-bold tracking-tight text-lg md:text-xl">
@@ -67,10 +82,10 @@ const Hero = ({ scrollToSection }) => {
                       </span>
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* CTA buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <motion.div {...rise(0.4)} className="flex flex-col sm:flex-row gap-3 pt-2">
                   <motion.button
                     className="btn-primary-soft"
                     whileHover={{ scale: 1.02 }}
@@ -88,13 +103,23 @@ const Hero = ({ scrollToSection }) => {
                   >
                     Contact Me
                   </motion.button>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* Photo */}
-            <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-              <div className="relative w-72 h-72 md:w-[400px] md:h-[400px]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease }}
+              className="w-full md:w-1/2 flex justify-center md:justify-end [perspective:1000px]"
+              onPointerMove={onTilt}
+              onPointerLeave={resetTilt}
+            >
+              <motion.div
+                style={{ rotateX: rx, rotateY: ry, transformStyle: 'preserve-3d' }}
+                className="relative w-72 h-72 md:w-[400px] md:h-[400px] animate-[bob_7s_ease-in-out_infinite]"
+              >
                 <div
                   className="absolute inset-0 rounded-2xl border border-zinc-800/50 shadow-[0_0_50px_rgba(147,51,234,0.15)]"
                   aria-hidden="true"
@@ -127,8 +152,10 @@ const Hero = ({ scrollToSection }) => {
                       <img
                         src={heroImg}
                         alt="Abhiram Mahanandhi profile"
-                        className="w-full h-full object-cover relative z-10"
+                        className="w-full h-full object-cover object-top relative z-10"
                         loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
                         onError={() => {
                           setImgFailed(true)
                         }}
@@ -152,10 +179,14 @@ const Hero = ({ scrollToSection }) => {
                     />
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
+      </div>
+
+      <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 h-9 w-5 justify-center rounded-full border border-white/20 pt-2" aria-hidden="true">
+        <span className="h-1.5 w-1 rounded-full bg-purple-300 animate-[scrollcue_1.8s_ease-in-out_infinite]" />
       </div>
     </section>
   )

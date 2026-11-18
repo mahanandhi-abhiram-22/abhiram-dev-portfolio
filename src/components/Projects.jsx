@@ -47,7 +47,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section">
       <div className="w-full max-w-7xl mx-auto py-16 md:py-24">
-        <h2 className="h-title text-3xl md:text-5xl mb-10">Projects</h2>
+        <h2 className="h-title text-3xl md:text-5xl mb-10"><span className="gradient-text">Projects</span></h2>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, idx) => (
@@ -55,9 +55,9 @@ const Projects = () => {
               key={project.title}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: idx * 0.02 }}
-              className="thin-card rounded-2xl p-6 md:p-7"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: (idx % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="thin-card rounded-2xl p-6 md:p-7 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -80,7 +80,7 @@ const Projects = () => {
                   className="btn-outline flex-1"
                 >
                   <span className="font-semibold">Demo</span>
-                  <span className="ml-2 text-zinc-400">→</span>
+                  <span className="ml-2 text-purple-300">→</span>
                 </a>
                 <a
                   href={project.github}
@@ -89,7 +89,7 @@ const Projects = () => {
                   className="btn-outline flex-1"
                 >
                   <span className="font-semibold">GitHub</span>
-                  <span className="ml-2 text-zinc-400">↗</span>
+                  <span className="ml-2 text-purple-300">↗</span>
                 </a>
               </div>
             </motion.div>
