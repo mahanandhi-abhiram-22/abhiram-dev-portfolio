@@ -7,7 +7,7 @@ const projects = [
     description: 'Battery health intelligence project, published on IEEE Xplore.',
     tech: [],
     github: 'https://github.com/mahanandhi-abhiram-22/Battery-Health-Intelligence',
-    live: 'https://ieeexplore.ieee.org/document/11252685',
+    live: 'https://ieeexplore.ieee.org/document/11470440',
     liveLabel: 'Paper',
   },
   {
@@ -55,7 +55,7 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="section">
-      <div className="w-full max-w-[1680px] mx-auto py-16 md:py-24">
+      <div className="w-full max-w-[1680px] mx-auto">
         <h2 className="h-title text-3xl md:text-5xl mb-10"><span className="gradient-text">Projects</span></h2>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">

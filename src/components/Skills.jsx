@@ -44,7 +44,7 @@ const SkillTrack = ({ item, delay = 0 }) => {
 const Skills = () => {
   return (
     <section id="skills" className="section">
-      <div className="w-full max-w-[1680px] mx-auto py-16 md:py-24">
+      <div className="w-full max-w-[1680px] mx-auto">
         <h2 className="h-title text-3xl md:text-5xl mb-10"><span className="gradient-text">Skills</span></h2>
 
         <div className="grid lg:grid-cols-2 gap-8">

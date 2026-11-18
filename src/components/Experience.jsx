@@ -25,7 +25,7 @@ const experiences = [
 const Experience = () => {
   return (
     <section id="experience" className="section">
-      <div className="w-full max-w-[1680px] mx-auto py-16 md:py-24">
+      <div className="w-full max-w-[1680px] mx-auto">
         <h2 className="h-title text-3xl md:text-5xl mb-10"><span className="gradient-text">Experience</span></h2>
 
         <div className="relative space-y-6 md:pl-10">
