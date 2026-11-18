@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
-import heroImg from '../hero.webp'
+// Picks up Hero.png / hero.jpg / hero.webp from either src/ or the project root
+const found = import.meta.glob(['../[Hh]ero.*', '../../[Hh]ero.*'], { eager: true, import: 'default' })
+const heroImg = Object.values(found)[0]
 
 const ease = [0.22, 1, 0.36, 1]
 const rise = (d = 0) => ({ initial: { opacity: 0, y: 28 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8, delay: d, ease } })
