@@ -12,6 +12,7 @@ const rightColumn = [
   { label: 'MongoDB & SQL', value: 80 },
   { label: 'REST APIs & JWT', value: 90 },
   { label: 'Python & NLTK', value: 75 },
+  { label: 'Data Structures & Algorithms', value: 35, display: 'Beginner' },
 ]
 
 const SkillTrack = ({ item, delay = 0 }) => {
@@ -25,7 +26,7 @@ const SkillTrack = ({ item, delay = 0 }) => {
     >
       <div className="flex items-center justify-between gap-3">
         <div className="text-zinc-300 font-light text-sm">{item.label}</div>
-        <div className="text-zinc-400 font-light text-sm">{item.value}%</div>
+        <div className="text-zinc-400 font-light text-sm">{item.display ?? `${item.value}%`}</div>
       </div>
       <div className="h-2 rounded-full bg-white/[0.04] border border-white/10 overflow-hidden">
         <motion.div

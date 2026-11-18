@@ -118,7 +118,7 @@ const Hero = ({ scrollToSection }) => {
             >
               <motion.div
                 style={{ rotateX: rx, rotateY: ry, transformStyle: 'preserve-3d' }}
-                className="relative w-72 h-72 md:w-[400px] md:h-[400px] animate-[bob_7s_ease-in-out_infinite]"
+                className="relative w-72 h-72 md:w-[400px] md:h-[400px]"
               >
                 <div
                   className="absolute inset-0 rounded-2xl border border-zinc-800/50 shadow-[0_0_50px_rgba(147,51,234,0.15)]"
@@ -126,12 +126,12 @@ const Hero = ({ scrollToSection }) => {
                 />
 
                 <div
-                  className="absolute -top-10 -left-10 w-72 h-72 rounded-full blur-3xl opacity-80"
+                  className="absolute -top-10 -left-10 w-72 h-72 rounded-full blur-2xl opacity-80"
                   style={{ background: 'rgba(168,85,247,0.18)' }}
                   aria-hidden="true"
                 />
                 <div
-                  className="absolute bottom-0 right-0 w-72 h-72 rounded-full blur-3xl opacity-70"
+                  className="absolute bottom-0 right-0 w-72 h-72 rounded-full blur-2xl opacity-70"
                   style={{ background: 'rgba(99,102,241,0.14)' }}
                   aria-hidden="true"
                 />
@@ -174,7 +174,7 @@ const Hero = ({ scrollToSection }) => {
                     )}
 
                     <div
-                      className="absolute -inset-2 rounded-2xl bg-purple-500/10 blur-2xl"
+                      className="absolute -inset-2 rounded-2xl bg-purple-500/10 blur-xl"
                       aria-hidden="true"
                     />
                   </div>

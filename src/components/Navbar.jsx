@@ -37,7 +37,7 @@ const Navbar = ({ activeSection, scrollToSection }) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`sticky top-0 z-50 w-full backdrop-blur-xl border-b transition-all duration-500 ${
+      className={`sticky top-0 z-50 w-full backdrop-blur-md border-b transition-colors duration-300 ${
         scrolled ? 'bg-[#07070b]/75 border-white/10 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)]' : 'bg-transparent border-transparent'
       }`}
     >
@@ -56,7 +56,7 @@ const Navbar = ({ activeSection, scrollToSection }) => {
           />
         </motion.button>
 
-        <ul className="hidden lg:flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur-md">
+        <ul className="hidden lg:flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1">
           {navItems.map((item) => (
             <li key={item.id} className="relative">
               <button

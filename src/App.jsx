@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -14,8 +15,9 @@ const SECTIONS = ['home', 'about', 'skills', 'projects', 'experience', 'contact'
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const glowRef = useRef(null)
+  const lenisRef = useRef(null)
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.3 })
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, mass: 0.2 })
 
   // Active section via IntersectionObserver (no scroll-handler jank)
   useEffect(() => {
@@ -26,6 +28,17 @@ function App() {
     )
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
+  }, [])
+
+  // Buttery inertia scrolling
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const lenis = new Lenis({ duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true })
+    lenisRef.current = lenis
+    let raf = 0
+    const loop = (time) => { lenis.raf(time); raf = requestAnimationFrame(loop) }
+    raf = requestAnimationFrame(loop)
+    return () => { cancelAnimationFrame(raf); lenis.destroy(); lenisRef.current = null }
   }, [])
 
   // Cursor glow + per-card spotlight (single delegated listener, rAF-throttled)
@@ -43,12 +56,16 @@ function App() {
         }
       })
     }
+    if (!window.matchMedia('(hover: hover)').matches) return
     window.addEventListener('pointermove', onMove, { passive: true })
     return () => { window.removeEventListener('pointermove', onMove); cancelAnimationFrame(raf) }
   }, [])
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    const el = document.getElementById(id)
+    if (!el) return
+    if (lenisRef.current) lenisRef.current.scrollTo(el, { offset: id === 'home' ? 0 : -64, duration: 1.4 })
+    else el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
